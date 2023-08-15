@@ -9,5 +9,4 @@ if h > 5:
 elif h == 0:
     print("Last digit of {} is {} and is 0" .format(number, h))
 else:
-    print("Last digit of {} is {} and is less than 6 and not 0" .format(number, h))
-
+    print(f"Last digit of {number} is {h} and is less than 6 and not 0")
