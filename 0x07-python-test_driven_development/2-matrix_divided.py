@@ -9,7 +9,7 @@ def matrix_divided(matrix, div):
     function divide matrix list
     """
 
-    if not isinstance(matrix, (int, float)):
+    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix) or not all(isinstance(val, (int, float)) for row in matrix for val in row):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
     rl = len(matrix[0])
     if not all(len(row) == rl for row in matrix):
