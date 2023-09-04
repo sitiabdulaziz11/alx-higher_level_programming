@@ -8,4 +8,5 @@
 >>> add_integer(100.3, -2)
 98
 >>> add_integer(4, "school")
-b must be an integer
+Traceback (most recent call last):
+TypeError: b must be an integer
