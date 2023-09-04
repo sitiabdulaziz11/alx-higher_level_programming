@@ -1,12 +1,36 @@
 >>> add_integer = __import__('0-add_integer').add_integer
+#0
 >>> add_integer(1, 2)
 3
+#1
 >>> add_integer(100, -2)
 98
+#2
 >>> add_integer(2)
 100
+#3
 >>> add_integer(100.3, -2)
 98
+#4
 >>> add_integer(4, "school")
 Traceback (most recent call last):
 TypeError: b must be an integer
+#5
+>>> add_integer("alx", 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+#6
+>>> add_integer(5, 1e400)
+Traceback (most recent call last):
+OverflowError: b too large
+#7
+>>> add_integer(1e400, 6)
+Traceback (most recent call last):
+OverflowError: a too large
+#8
+>>> add_integer(-7.5, -5)
+-12
+#9
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: missing one argument: 'a'
