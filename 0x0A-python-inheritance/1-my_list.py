@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module works on inheritace"""
 
+
 class MyList(list):
     """This class inherit from list"""
 
