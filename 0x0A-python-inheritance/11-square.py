@@ -8,8 +8,8 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Square:
-    """
-    my square class
+    """my square class
+    that inherits from Rectangle class
     """
     def __init__(self, size):
         """Function that initialize attributs"""

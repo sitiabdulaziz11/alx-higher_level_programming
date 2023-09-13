@@ -7,8 +7,8 @@ Rectangle = __import__('9-rectangle').rectangle
 
 
 class Square:
-    """
-    my square class
+    """my square class
+    Square class that inherits from Rectangle class
     """
     def __init__(self, size):
         """Function that initialize attributs"""

@@ -1,0 +1,8 @@
+>>> BaseGeometry = __import__('7-base_geometry').baseGeometry
+>>> bsg = BaseGeometry()
+
+case @0
+>>> bsg.integer_validator("my_int", 12)
+
+case #1
+>>> bsg.integer_validator("height", 7)
