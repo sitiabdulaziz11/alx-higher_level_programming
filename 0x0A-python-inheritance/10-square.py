@@ -3,10 +3,10 @@
 Module inherit from other class
 """
 
-Rectangle = __import__('9-rectangle').rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
 
-class Square:
+class Square(Rectangle):
     """my square class
     Square class that inherits from Rectangle class
     """
