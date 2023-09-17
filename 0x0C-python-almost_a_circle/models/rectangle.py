@@ -15,26 +15,71 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-    def get_width(self):
+    @property
+    def width(self):
         return self.__width
 
-    def set_width(self, width):
-        self.__width = width
+    @width.setter
+    def width(self, width):
 
-    def get_height(self):
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+
+        if width <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = width
+    
+    @property
+    def height(self):
         return self.__height
 
-    def set_height(self, height):
-        self.__height = height
+    @height.setter
+    def height(self, height):
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
 
-    def get_x(self):
+        if height <= 0:
+            raise ValueError("height must be > 0")
+
+        self.__height = height
+    
+    @property
+    def x(self):
         return self.__x
 
-    def set_x(self, x):
+    @x.setter
+    def x(self, x):
+        if not isinstance(x, int):
+            raise TypeError(" x must be an integer")
+
+        if x <= 0:
+            raise ValueError("x must be > 0")
         self.__x = x
-
-    def get_y(self):
+    
+    @property
+    def y(self):
         return self.__y
-
-    def set_y(self):
+    @y.setter
+    def y(self, y):
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        if y <= 0:
+            raise ValueError("y must be > 0")
         self.__y = y
+
+    def area(self):
+        """ calculate and return the area of the Rectangle.
+        """
+        return self.__height * self.__width
+    def display(self):
+        """print representation of the Rectangle using '#' character
+        accounting for 'x' and 'y'
+        """
+        for t in range(self.__y):
+            print()
+
+        for i in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
+
+    def __str__(self):
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
