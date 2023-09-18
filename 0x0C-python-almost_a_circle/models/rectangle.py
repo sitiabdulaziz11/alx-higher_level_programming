@@ -117,7 +117,7 @@ class Rectangle(Base):
         returns a string format of the rectanglei with '#' character
         """
         return (
-                f"[{type(self).__name__}] ({self.id})"
+                f"[{type(self).__name__}] ({self.id}) "
                 f"{self.__x}/{self.__y} - {self.__width}/{self.__height}"
                 )
 
