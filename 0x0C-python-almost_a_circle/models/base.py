@@ -11,7 +11,8 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Method which initialize the attributes"""
+        """Method which initialize the attributes
+        """
 
         if id is not None:
             self.id = id
@@ -21,6 +22,9 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """
+        Return the JSON serialization of a list of dicts.
+        """
         if list_dictionaries is None:
             return "[]"
         else:
@@ -64,6 +68,10 @@ class Base:
         return dummy_instance
 
     def update(self, *args, **kwargs):
+        """
+        Function that updates argument position and
+        key word argument position
+        """
         if args:
             attr_name = ["id", "width", "height", "x", "y"]
             for i, arg in enumerate(args):
