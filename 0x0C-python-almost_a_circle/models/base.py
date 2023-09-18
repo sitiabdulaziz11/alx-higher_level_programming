@@ -25,10 +25,11 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
-
+    
     @classmethod
     def save_to_file(cls, list_objs):
-        """ Function that writes the json string representation to a file
+        """
+        Function that writes the json string representation to a file
         """
         f_name = f"{cls.__name__}.json"
 
@@ -49,4 +50,41 @@ class Base:
             if isinstance(data, list) and all(isinstance(
                 item, dict) for item in data):
                 return data
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Function that returns an instance with all attributes already set
+        """
+        if cls.__name__ == "Rectangle":
+            dummy_instance = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy_instance = cls(1)
+        dummy_instance.update(**dictionary)
+        return dummy_instance
 
+    def update(self, *args, **kwargs):
+        if args:
+            attr_name = ["id", "width", "height", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, attr_name[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def load_from_file(cls):
+        """Construct the filename based on the class name
+        """
+        f_name = f"{cls.__name__}.json"
+
+        if not os.path.exists(filename):
+            return []
+        else:
+            with open(f_name, 'r') as fi:
+                data = json.load(fi)
+                instances = []
+
+                for item in data:
+                    instance = cls.from_json_string(item)
+                    instances.append(instance)
+
+                return instances
