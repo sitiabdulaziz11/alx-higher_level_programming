@@ -11,7 +11,8 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Method which initialize the attributes
+        """
+        Method which initialize the attributes
         """
 
         if id is not None:
@@ -81,19 +82,14 @@ class Base:
                 setattr(self, key, value)
 
     def load_from_file(cls):
-        """Construct the filename based on the class name
         """
-        f_name = f"{cls.__name__}.json"
+        Construct the filename based on the class name
+        """
+        f_name = str(cls.__name__) + ".json"
 
-        if not os.path.exists(filename):
-            return []
-        else:
+        try:
             with open(f_name, 'r') as fi:
-                data = json.load(fi)
-                instances = []
-
-                for item in data:
-                    instance = cls.from_json_string(item)
-                    instances.append(instance)
-
-                return instances
+                data = Base.from_json.string(fi.read())
+                return [cls.create(**d) for d in data]
+            except IOError:
+                return []
