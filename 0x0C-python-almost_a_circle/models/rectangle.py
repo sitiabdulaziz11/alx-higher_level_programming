@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This module write class that inherit from previous Base class"""
+"""
+This module write class that inherit from previous Base class
+"""
 
 from .base import Base
 
@@ -9,6 +11,9 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """
+        Initializes the instance or attributes of the class
+        """
         super().__init__(id)
         self.__width = width
         self.__height = height
@@ -17,24 +22,35 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """
+        getter function for __width
+        """
         return self.__width
 
     @width.setter
     def width(self, width):
-
+        """
+        setter function for __width
+        """
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
 
         if width <= 0:
             raise ValueError("width must be > 0")
         self.__width = width
-    
+
     @property
     def height(self):
+        """
+        getter function for height
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """
+        setter function for height
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
 
@@ -42,28 +58,41 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
 
         self.__value = value
-    
+
     @property
     def x(self):
+        """
+        getter function for x.
+        """
         return self.__x
 
     @x.setter
     def x(self, x):
+        """
+        setter function for x.
+        """
         if not isinstance(x, int):
             raise TypeError(" x must be an integer")
 
         if x <= 0:
             raise ValueError("x must be > 0")
         self.__x = x
-    
+
     @property
     def y(self):
+        """
+        getter function for y.
+        """
         return self.__y
+
     @y.setter
     def y(self, y):
+        """
+        setter function for y.
+        """
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
-        if y == 0:
+        if y < 0:
             raise ValueError("y must be > 0")
         self.__y = y
 
@@ -71,6 +100,7 @@ class Rectangle(Base):
         """ calculate and return the area of the Rectangle.
         """
         return self.__height * self.__width
+
     def display(self):
         """print representation of the Rectangle using '#' character
         accounting for 'x' and 'y'
@@ -82,10 +112,17 @@ class Rectangle(Base):
             print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        """
+        returns a string format of the rectangle
+        """
+        return f"[Rectangle] ({self.id})\
+                {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
-        
+        """
+        assign key/value argument to attributes
+        kwargs is skipped if args is not empty
+        """
         if args:
             if len(args) >= 1:
                 self.id = args[0]
@@ -100,9 +137,9 @@ class Rectangle(Base):
         Function that returns the dictionary representation of a Rectangle
         """
         rec_dict = {'y': self.y,
-                'x': self.x,
-                'id': self.id,
-                'width': self.width,
-                'height': self.height
-                }
+                    'x': self.x,
+                    'id': self.id,
+                    'width': self.width,
+                    'height': self.height
+                    }
         return rec_dict
