@@ -141,9 +141,9 @@ class Rectangle(Base):
             pass
 
         def to_dictionary(self):
-        """
-        Function that returns the dictionary representation of a Rectangle
-        """
+            """
+            Function that returns the dictionary representation of a Rectangle
+            """
         rec_dict = {'y': self.y,
                     'x': self.x,
                     'id': self.id,
