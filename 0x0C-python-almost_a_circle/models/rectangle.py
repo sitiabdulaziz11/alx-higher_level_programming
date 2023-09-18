@@ -126,16 +126,21 @@ class Rectangle(Base):
         assign key/value argument to attributes
         kwargs is skipped if args is not empty
         """
-        if args:
-            if len(args) >= 1:
-                self.id = args[0]
-            if len(args) >= 2:
-                self.width = args[1]
-        elif kwargs:
+        if len(args) == 0:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                self.__setattr__(key, value)
+            return
 
-    def to_dictionary(self):
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
+
+        def to_dictionary(self):
         """
         Function that returns the dictionary representation of a Rectangle
         """
