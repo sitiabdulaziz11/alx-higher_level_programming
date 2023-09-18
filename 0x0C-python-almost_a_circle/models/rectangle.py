@@ -34,14 +34,14 @@ class Rectangle(Base):
         return self.__height
 
     @height.setter
-    def height(self, height):
-        if not isinstance(height, int):
+    def height(self, value):
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
 
-        if height <= 0:
+        if value <= 0:
             raise ValueError("height must be > 0")
 
-        self.__height = height
+        self.__value = value
     
     @property
     def x(self):
@@ -94,3 +94,15 @@ class Rectangle(Base):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Function that returns the dictionary representation of a Rectangle
+        """
+        rec_dict = {'y': self.y,
+                'x': self.x,
+                'id': self.id,
+                'width': self.width,
+                'height': self.height
+                }
+        return rec_dict
