@@ -37,6 +37,7 @@ class Rectangle(Base):
 
         if width <= 0:
             raise ValueError("width must be > 0")
+
         self.__width = width
 
     @property
@@ -51,13 +52,13 @@ class Rectangle(Base):
         """
         setter function for height
         """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("height must be an integer")
 
         if value <= 0:
             raise ValueError("height must be > 0")
 
-        self.__value = value
+        self.__height = value
 
     @property
     def x(self):
@@ -67,16 +68,16 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, x):
+    def x(self, val):
         """
         setter function for x.
         """
-        if not isinstance(x, int):
+        if not isinstance(val, int):
             raise TypeError(" x must be an integer")
 
-        if x <= 0:
+        if val < 0:
             raise ValueError("x must be > 0")
-        self.__x = x
+        self.__x = val
 
     @property
     def y(self):
@@ -86,20 +87,20 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def y(self, y):
+    def y(self, val):
         """
         setter function for y.
         """
-        if not isinstance(y, int):
+        if type(val) is not int:
             raise TypeError("y must be an integer")
-        if y < 0:
+        if val < 0:
             raise ValueError("y must be > 0")
-        self.__y = y
+        self.__y = val
 
     def area(self):
         """ calculate and return the area of the Rectangle.
         """
-        return self.__height * self.__width
+        return (self.__width * self.__height)
 
     def display(self):
         """print representation of the Rectangle using '#' character
@@ -113,9 +114,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """
-        returns a string format of the rectangle
+        returns a string format of the rectanglei with '#' character
         """
-        return f"[Rectangle] ({self.id})\
+        return f"[type(self).__name__] ({self.id})\
                 {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
