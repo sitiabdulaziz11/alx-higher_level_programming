@@ -4,6 +4,7 @@
 
 from .rectangle import Rectangle
 
+
 class Square(Rectangle):
     """class Square that inherits from Rectangle"""
 
@@ -12,20 +13,31 @@ class Square(Rectangle):
         initializes the instance of the class
         """
         super().__init__(size, size, x, y, id)
-    
+
     @property
     def size(self):
+        """
+        getter function that returns size of the square
+        """
         return self.width
+
     @size.setter
     def size(self, size):
+        """
+        settre function for size
+        """
         self.width = size
         self.height = size
 
     def __str__(self):
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
+        return (
+                f"[{type(self).__name__}] ({self.id}) "
+                f"{self.x}/{self.y} - {self.size}"
+                )
 
     def update(self, *args, **kwargs):
-        """ Method that  update the Square class by adding 
+        """
+        Method that  update the Square class by adding
         a public method named update
         """
         if args:
@@ -40,8 +52,10 @@ class Square(Rectangle):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
     def to_dictionary(self):
-        """Function that update class Square by adding the public method
+        """
+        Function that update class Square by adding the public method
          that returns the dictionary representation of a Square
          """
         sqr_dict = {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
