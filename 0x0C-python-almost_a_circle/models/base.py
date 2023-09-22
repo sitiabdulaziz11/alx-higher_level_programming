@@ -85,8 +85,7 @@ class Base:
         """
         Construct the filename based on the class name
         """
-        f_name = str(cls.__name__) + ".json"
-
+        f_name = f"{cls.__name__}.json"
         try:
             with open(f_name, 'r') as fi:
                 data = Base.from_json.string(fi.read())

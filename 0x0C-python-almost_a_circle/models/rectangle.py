@@ -148,6 +148,6 @@ class Rectangle(Base):
                     'x': self.x,
                     'id': self.id,
                     'width': self.width,
-                    'height': self.height
+                    'height': self.height,
                     }
         return rec_dict
