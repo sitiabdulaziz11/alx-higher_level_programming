@@ -58,5 +58,5 @@ class Square(Rectangle):
         Function that update class Square by adding the public method
          that returns the dictionary representation of a Square
          """
-        sqr_dict = {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        sqr_dict = {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
         return sqr_dict

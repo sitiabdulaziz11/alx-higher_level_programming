@@ -74,7 +74,7 @@ class Base:
         key word argument position
         """
         if args:
-            attr_name = ["id", "width", "height", "x", "y"]
+            attr_name = ["x", "width", "height", "x", "y"]
             for i, arg in enumerate(args):
                 setattr(self, attr_name[i], arg)
         else:
@@ -91,5 +91,5 @@ class Base:
             with open(f_name, 'r') as fi:
                 data = Base.from_json.string(fi.read())
                 return [cls.create(**d) for d in data]
-            except IOError:
-                return []
+        except IOError:
+            return []

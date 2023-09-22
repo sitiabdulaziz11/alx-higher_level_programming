@@ -15,10 +15,10 @@ class Rectangle(Base):
         Initializes the instance or attributes of the class
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -73,10 +73,10 @@ class Rectangle(Base):
         setter function for x.
         """
         if not isinstance(val, int):
-            raise TypeError(" x must be an integer")
+            raise TypeError("x must be an integer")
 
         if val < 0:
-            raise ValueError("x must be > 0")
+            raise ValueError("x must be >= 0")
         self.__x = val
 
     @property
@@ -94,7 +94,7 @@ class Rectangle(Base):
         if type(val) is not int:
             raise TypeError("y must be an integer")
         if val < 0:
-            raise ValueError("y must be > 0")
+            raise ValueError("y must be >= 0")
         self.__y = val
 
     def area(self):
@@ -140,14 +140,14 @@ class Rectangle(Base):
         except IndexError:
             pass
 
-        def to_dictionary(self):
-            """
-            Function that returns the dictionary representation of a Rectangle
-            """
-        rec_dict = {'y': self.y,
-                    'x': self.x,
+    def to_dictionary(self):
+        """
+        Function that returns the dictionary representation of a Rectangle
+        """
+        rec_dict = {'x': self.x,
+                    'y': self.y,
                     'id': self.id,
-                    'width': self.width,
-                    'height': self.height
+                    'height': self.height,
+                    'width': self.width
                     }
         return rec_dict
