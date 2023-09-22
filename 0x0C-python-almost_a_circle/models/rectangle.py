@@ -144,10 +144,10 @@ class Rectangle(Base):
         """
         Function that returns the dictionary representation of a Rectangle
         """
-        rec_dict = {'x': self.x,
-                    'y': self.y,
+        rec_dict = {'y': self.y,
+                    'x': self.x,
                     'id': self.id,
-                    'height': self.height,
-                    'width': self.width
+                    'width': self.width,
+                    'height': self.height
                     }
         return rec_dict

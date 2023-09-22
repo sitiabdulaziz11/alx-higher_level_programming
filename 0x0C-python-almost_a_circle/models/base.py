@@ -37,11 +37,11 @@ class Base:
         Function that writes the json string representation to a file
         """
         f_name = f"{cls.__name__}.json"
-
-        json_val = cls.to_json_string(list_objs)
+        list_dicts = [obj.to_dictionary() for obj in list_objs]
+        jn_val = cls.to_json_string(list_dicts)
 
         with open(f_name, 'w') as fil:
-            fil.write(json_val)
+            fil.write(jn_val)
 
     @staticmethod
     def from_json_string(json_string):
@@ -74,7 +74,7 @@ class Base:
         key word argument position
         """
         if args:
-            attr_name = ["x", "width", "height", "x", "y"]
+            attr_name = ["x", "width", "height", "y"]
             for i, arg in enumerate(args):
                 setattr(self, attr_name[i], arg)
         else:
