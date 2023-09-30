@@ -29,6 +29,19 @@ TypeError: b must be an integer
 Traceback (most recent call last):
 TypeError: a must be an integer
 
+#6
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+
+#7
+
+>>> add_integer(7, float('inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+
 #8
 >>> add_integer(-7.5, -5)
 -12
