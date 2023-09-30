@@ -6,12 +6,11 @@ My name is hello siti
 
 #2
 >>> say_my_name("siti")
-My name is siti
-
+My name is siti 
 
 #3
 >>> say_my_name("hello", "")
-My name is hello
+My name is hello 
 
 #4
 >>> say_my_name()
