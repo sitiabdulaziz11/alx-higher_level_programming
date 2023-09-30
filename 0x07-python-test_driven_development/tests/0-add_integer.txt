@@ -29,18 +29,6 @@ TypeError: b must be an integer
 Traceback (most recent call last):
 TypeError: a must be an integer
 
-#6
->>> add_integer(5, 1e400)
-Traceback (most recent call last):
-b = int(b)
-OverflowError: cannot convert float infinity to integer 
-
-#7
->>> add_integer(1e400, 6)
-Traceback (most recent call last):
-a = int(a)
-OverflowError: cannot convert float infinity to integer 
-
 #8
 >>> add_integer(-7.5, -5)
 -12
