@@ -21,7 +21,7 @@ import module:
 
 4. Test to print negatives:
 
->>> print_square(-7)
+>>> print_square(-2)
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
