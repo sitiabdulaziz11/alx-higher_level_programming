@@ -12,6 +12,8 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     for delm in ".?:":
-        text = (delm + "\n\n").join(
-                [line.strip(" ") for line in text.split(delm)])
-        print(text, end="")
+        ln = text.split(delm)
+        form_ln = [ln.strip() for ln in ln]
+        form_text = (delm + "\n\n").join(form_ln)
+        text = form_text
+    print(text, end="")
