@@ -22,8 +22,7 @@ if __name__ == "__main__":
 
         cr = dbs.cursor()
 
-        cr.execute("SELECT * FROM hbtn_0e_0_usa.states \
-                WHERE name LIKE BINARY %s \
+        cr.execute("SELECT * FROM states WHERE name LIKE BINARY %s \
                 ORDER BY states.id ASC", (argv[4],))
 
         for row in cr.fetchall():
