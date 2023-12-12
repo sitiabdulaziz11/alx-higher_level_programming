@@ -1,8 +1,11 @@
 #!/usr/bin/node
-const FirstArg = parseInt(process.argv[2]);
-
-if (!FirstArg) {
+if (process.argv.length < 3) {
   console.log('Not a number');
 } else {
-  console.log('My number: ', FirstArg);
+  const FirstArg = parseInt(process.argv[2]);
+  if (!isNaN(FirstArg)) {
+    console.log('My number: ', FirstArg);
+  } else {
+    console.log('Not a number');
+  }
 }
