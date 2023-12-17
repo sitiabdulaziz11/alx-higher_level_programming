@@ -11,10 +11,11 @@ if __name__ == "__main__":
             host="localhost", port=3306, user=sys.argv[1],
             passwd=sys.argv[2], db=sys.argv[3])
 
-    ptr = dbs.cursor()
-    ptr.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
+    cur = dbs.cursor()
+    # cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id")
+    cur.execute("SELECT id, name FROM states WHERE name LIKE '%N' ORDER BY id")
 
-    for rows in ptr.fetchall():
+    for rows in cur.fetchall():
         print(rows)
 
     dbs.close()
