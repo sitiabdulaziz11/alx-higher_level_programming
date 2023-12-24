@@ -1,0 +1,12 @@
+[0;1;32m●[0m mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Sun 2023-12-24 14:06:17 EAT; 55min ago
+   Main PID: 8728 (mysqld)
+     Status: "Server is operational"
+      Tasks: 38 (limit: 4649)
+     Memory: 403.1M
+     CGroup: /system.slice/mysql.service
+             └─8728 /usr/sbin/mysqld
+
+Dec 24 14:06:16 DESKTOP-LB6142V systemd[1]: Starting MySQL Community Server...
+Dec 24 14:06:17 DESKTOP-LB6142V systemd[1]: Started MySQL Community Server.
