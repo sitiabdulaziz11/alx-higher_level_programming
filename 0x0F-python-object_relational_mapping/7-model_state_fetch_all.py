@@ -1,12 +1,12 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
 """
 script that lists all State objects from the database hbtn_0e_6_usa
 """
 
 from sys import argv
-from model_state import Base, State
-from sqlalchemy import create_engine
+from model_state import State
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 
 if __name__ == "__main__":
     """
@@ -20,6 +20,7 @@ if __name__ == "__main__":
     session = Session()
 
     states = session.query(State).order_by(State.id).all()
-
-    for state in states:
+    # print("Number of states:", len(states))
+    
+    for state in states[:1]:
         print("{}: {}" .format(state.id, state.name))
